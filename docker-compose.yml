@@ -3,6 +3,8 @@ version: '3.7'
 services:
   app:
     container_name: koa2-typeorm-boilerplate
+    networks:
+      - nodejs101
     build:
       context: .
       dockerfile: Dockerfile
@@ -15,6 +17,8 @@ services:
     ports:
       - 4001:4001
       # - 9229:9229
+    depends_on:
+      - postgres
     entrypoint:
       - ./entrypoint.sh
       - ./node_modules/.bin/nodemon
@@ -26,7 +30,7 @@ services:
     image: mdillon/postgis:10-alpine
     container_name: koa2-typeorm-db
     networks:
-      - koa2-typeorm
+      - nodejs101
     environment:
       POSTGRES_DB: nodejs101
       POSTGRES_USER: postgres
@@ -40,5 +44,5 @@ volumes:
   postgres: ~
 
 networks:
-  koa2-typeorm:
+  nodejs101:
     name: koa2-typeorm-boilerplate
