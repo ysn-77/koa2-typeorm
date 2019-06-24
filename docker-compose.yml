@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   app:
-    container_name: sm-email-service
+    container_name: koa2-typeorm-boilerplate
     build:
       context: .
       dockerfile: Dockerfile
