@@ -33,10 +33,6 @@ A collection of useful commands which might be helpful
 
 1. `npm run test`
 
-### Create apidocs
-
-1. `npm run apidocs`
-
 ### Debug
 
 1. uncomment following line from docker-compose.yml

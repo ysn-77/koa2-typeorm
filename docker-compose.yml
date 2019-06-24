@@ -21,3 +21,24 @@ services:
       #- --inspect-brk=0.0.0.0 , break before code starts
       #- --inspect=0.0.0.0
       - ./bin/server
+
+  postgres:
+    image: mdillon/postgis:10-alpine
+    container_name: koa2-typeorm-db
+    networks:
+      - koa2-typeorm
+    environment:
+      POSTGRES_DB: nodejs101
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+    ports:
+      - 5432:5432
+
+volumes:
+  postgres: ~
+
+networks:
+  koa2-typeorm:
+    name: koa2-typeorm-boilerplate

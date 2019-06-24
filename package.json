@@ -16,7 +16,6 @@
     "format:check": "prettier --config ./.prettierrc --list-different \"src/**/*{.ts,.js,.json}\"",
     "format:fix:all": "pretty-quick",
     "format:fix:staged": "pretty-quick --staged",
-    "apidocs": "apidoc -i src/ -o doc/",
     "test": "jest --colors -w 1",
     "test:coverage": "jest --colors --coverage"
   },
