@@ -13,7 +13,7 @@
     "logs": "docker logs -f koa2-typeorm-boilerplate",
     "logs:short": "sudo docker logs -f koa2-typeorm-boilerplate | bunyan -o short",
     "logs:simple": "sudo docker logs -f koa2-typeorm-boilerplate | bunyan -o simple",
-    "api:exec": "docker exec -it betts-connect-api sh",
+    "api:exec": "sudo docker exec -it koa2-typeorm-boilerplate sh",
     "lint": "tslint -c tslint.json 'src/**/*.ts' ",
     "lint:fix": "tslint -c tslint.json 'src/**/*.ts' --fix",
     "format:check": "prettier --config ./.prettierrc --list-different \"src/**/*{.ts,.js,.json}\"",
@@ -23,7 +23,7 @@
     "test:coverage": "jest --colors --coverage",
     "migrate:create": "./node_modules/.bin/typeorm migration:create -n",
     "migrate:revert": "ts-node ./node_modules/.bin/typeorm migration:revert",
-    "migrate:run": "ts-node --transpileOnly ./node_modules/.bin/typeorm migration:run"
+    "migrate:run": "ts-node ./node_modules/.bin/typeorm migration:run"
   },
   "repository": {
     "type": "git",
