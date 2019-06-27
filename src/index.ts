@@ -18,7 +18,7 @@ const logger = new Logger('koa2-typeorm-boilerplate').createLogger();
 bootstrap()
   .then(() => {
     const app = new Koa();
-
+    app.use(Logger.koa(logger));
     app.use(helmet());
     app.use(
       koaBodyparser({

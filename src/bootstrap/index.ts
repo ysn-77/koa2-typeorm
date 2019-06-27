@@ -13,7 +13,7 @@ export const bootstrap = async (): Promise<boolean> => {
       await clearDatabaseCache();
     }
   } catch (err) {
-    logger.error('EError while connecting database', err);
+    logger.error('Error while connecting database', err);
     throw err;
   }
   return Promise.resolve(true);
