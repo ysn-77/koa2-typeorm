@@ -21,9 +21,11 @@ export const login = async (context: Context, next: () => void) => {
     userName: context.request.body.userName,
     password: context.request.body.password,
   };
+
   const user = await service.findUserByUserName(params.userName);
   service.checkPassword(params.password, user);
   const token = service.generateToken(user);
+
   context.state.data = { user, token };
   await next();
 };

@@ -1,6 +1,5 @@
 
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-
 @Entity('heroes')
 export class Heroes {
   @PrimaryGeneratedColumn()

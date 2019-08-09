@@ -7,7 +7,6 @@ import config from '../../config';
 import { User } from '../entities/users';
 
 export const getAll = async () => {
-  repo.remove([3,4]);
   return repo.getAll();
 };
 
