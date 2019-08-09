@@ -1,4 +1,7 @@
 FROM node:10.15.1-alpine
+RUN apk add --no-cache --virtual .gyp \
+  python \
+  make
 
 WORKDIR /app
 

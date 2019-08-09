@@ -9,6 +9,7 @@ const router = new Router({
 
 router.get('/', ctrl.index);
 router.post('/', ctrl.create);
+router.post('/login/', ctrl.login);
 
 const routes = router.routes();
 export default compose([routes]);

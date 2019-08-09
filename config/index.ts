@@ -7,6 +7,7 @@ export interface IConfig {
   };
   api: {
     baseURL: string;
+    secretKey: string;
   };
   database: {
     connectionName: string;
@@ -42,6 +43,11 @@ const config = convict<IConfig>({
       env: 'API_BASEURL',
       default: '/api/v1',
     },
+    secretKey: {
+      format: String,
+      env: 'API_SECRET_KEY',
+      default: 'iuxln85pxc26pzoy0le6lph7ey9ht0i8',
+    }
   },
   database: {
     connectionName: {

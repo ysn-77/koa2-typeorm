@@ -7,12 +7,6 @@ export const getAll = async (ctx: Context, next: () => void) => {
   await next();
 };
 
-// export const getById = async (ctx: Context, next: () => void) => {
-//   const id: number = ctx.params.id;
-//   ctx.state.data = await services.getById(id);
-//   await next();
-// };
-
 export const addHero = async (ctx: Context, next: () => void) => {
   const hero = {
     name: ctx.request.body.name
@@ -31,8 +25,8 @@ export const updateHero = async (ctx: Context, next: () => void) => {
   await next();
 };
 
-// export const deleteHero = async (ctx: Context, next: () => void) => {
-//   const id: number = ctx.params.id;
-//   ctx.state.data = await services.softDelete(id);
-//   await next();
-// };
+export const deleteHero = async (ctx: Context, next: () => void) => {
+  const id: number = ctx.params.id;
+  ctx.state.data = await services.deleteHero({ id });
+  await next();
+};
