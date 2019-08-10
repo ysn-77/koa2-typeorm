@@ -1,5 +1,6 @@
 import * as joi from 'joi';
 import * as repo from '../repositories/heroes';
+import * as userRepo from '../repositories/users';
 import * as interfaces from '../interfaces/hero'
 import { Heroes } from '../entities/heroes';
 
@@ -7,13 +8,17 @@ export const getAll = async () => {
   return repo.getAll();
 };
 
-export const addHero = async (hero: interfaces.IHeroRequest) => {
+export const addHero = async (hero: interfaces.IHeroRequest, userId: number) => {
   await joi.validate(hero, {
     name: joi.string().required(),
   });
 
   const toSaveHero = new Heroes();
   toSaveHero.name = hero.name;
+
+  const user = await userRepo.findById(userId);
+  toSaveHero.user = user;
+
   return repo.save(toSaveHero);
 };
 

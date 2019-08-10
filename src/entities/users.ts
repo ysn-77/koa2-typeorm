@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, Index } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, Index, OneToMany } from 'typeorm';
+import { Heroes } from './heroes';
 
 @Entity('users')
 export class User {
@@ -18,4 +19,7 @@ export class User {
     length: '255'
   })
   public password: string;
+
+  @OneToMany(_ => Heroes, hero => hero.user)
+  public heroes: Heroes[];
 }

@@ -1,9 +1,14 @@
 
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, JoinColumn, ManyToOne } from 'typeorm';
+import { User } from './users';
 @Entity('heroes')
 export class Heroes {
   @PrimaryGeneratedColumn()
   public id: number;
+
+  @ManyToOne(_ => User, user => user.heroes, {eager: true})
+  @JoinColumn({ name: 'createdByUserId'})
+  public user: User;
 
   @Column({
     type: 'character varying',
